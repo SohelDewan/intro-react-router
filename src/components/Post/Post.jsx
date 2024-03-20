@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Post = ({post}) => {
     const {id, title} = post;
     const postStyle ={
         border: '2px solid green',
         padding: '20px',
         borderRadius: '10px'
+    }
+    const navigate = useNavigate();
+    const handleDetail = ()=>{
+        navigate(`/post/${id}`);
     }
     return (
         <div style={postStyle}>
@@ -14,6 +18,7 @@ const Post = ({post}) => {
             <Link to={`/post/${id}`}>
                 <button>View Post</button>
             </Link>
+            <button onClick={handleDetail}>click to details</button>
         </div>
     );
 };
